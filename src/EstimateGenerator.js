@@ -17,7 +17,7 @@ const EstimateGenerator = (props) => {
     const [estimateCounter, setEstimateCounter] = useState(1);
 
     useEffect(() => {
-        fetch('http://127.0.0.1:5000/rate_card')
+        fetch('/api/rate_card')
             .then((response) => response.json())
             .then((data) => {
                 const uniqueCategories = Array.from(new Set(data.map((item) => item.service_category)));
@@ -29,7 +29,7 @@ const EstimateGenerator = (props) => {
 
     useEffect(() => {
         if (selectedCategory) {
-            fetch('http://127.0.0.1:5000/rate_card')
+            fetch('/api/rate_card')
                 .then((response) => response.json())
                 .then((data) => {
                     const servicesInCategory = Array.from(new Set(data
@@ -44,7 +44,7 @@ const EstimateGenerator = (props) => {
 
     useEffect(() => {
         if (selectedServiceName) {
-            fetch('http://127.0.0.1:5000/rate_card')
+            fetch('/api/rate_card')
                 .then((response) => response.json())
                 .then((data) => {
                     const offerings = data
